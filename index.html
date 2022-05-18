@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .kutu{
+            width: 100px;
+            height: 100px;
+            /* background-color: rgba(0, 0, 0, 0.426); */
+            position: absolute;
+            transition: all 1s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: blue;
+            color: white;
+            font-weight: 600;
+            font-size: 22px;
+        }
+    </style>
+</head>
+<body>
+    <div class="kutu" id="kutu">
+        Level : 1
+    </div>
+</body>
+
+<script>
+    const kutu = document.getElementById('kutu')
+
+    let boxTop = 0;
+    let boxLeft = 0;
+
+    let speed = 1;
+   
+
+    
+    window.addEventListener('keydown', (e) => {
+        let leftValue = kutu.style.left
+        let topValue = kutu.style.top
+        console.log(e.keyCode )
+        if(e.keyCode == 49){
+            speed = 1
+            kutu.innerHTML = 'Level : 1'
+            kutu.style.backgroundColor = 'blue'
+        }else if(e.keyCode == 50){
+            speed = 2
+            kutu.innerHTML = 'Level : 2'
+            kutu.style.backgroundColor = 'green'
+        }else if(e.keyCode == 51){
+            speed = 3
+            kutu.innerHTML = 'Level : 3'
+            kutu.style.backgroundColor = 'red'
+        }
+
+        if(speed == 1){
+            if(e.keyCode == 38){
+                //yukarı
+                console.log('yukarı')
+                boxTop--
+                kutu.style.top = `${boxTop}px`
+            
+            }else if(e.keyCode == 39){
+                //sağ
+                console.log('sağ')
+                boxLeft++
+                kutu.style.left = `${boxLeft}px`
+                
+            }else if(e.keyCode == 37){
+                //sol
+                console.log('sol')
+                boxLeft--
+                kutu.style.left = `${boxLeft}px`
+                
+            }else if(e.keyCode == 40){
+                //ağaşı
+                console.log('ağaşı')
+                boxTop++
+                kutu.style.top = `${boxTop}px`
+            }
+        }else if(speed == 2){
+            if(e.keyCode == 38){
+                //yukarı
+                console.log('yukarı')
+                boxTop -= 20
+                kutu.style.top = `${boxTop}px`
+            
+            }else if(e.keyCode == 39){
+                //sağ
+                console.log('sağ')
+                boxLeft += 20
+                kutu.style.left = `${boxLeft}px`
+                
+            }else if(e.keyCode == 37){
+                //sol
+                console.log('sol')
+                boxLeft -= 20
+                kutu.style.left = `${boxLeft}px`
+                
+            }else if(e.keyCode == 40){
+                //ağaşı
+                console.log('ağaşı')
+                boxTop += 20
+                kutu.style.top = `${boxTop}px`
+            }
+        }else if(speed == 3){
+            if(e.keyCode == 38){
+                //yukarı
+                console.log('yukarı')
+                boxTop -= 40
+                kutu.style.top = `${boxTop}px`
+            
+            }else if(e.keyCode == 39){
+                //sağ
+                console.log('sağ')
+                boxLeft += 40
+                kutu.style.left = `${boxLeft}px`
+                
+            }else if(e.keyCode == 37){
+                //sol
+                console.log('sol')
+                boxLeft -= 40
+                kutu.style.left = `${boxLeft}px`
+                
+            }else if(e.keyCode == 40){
+                //ağaşı
+                console.log('ağaşı')
+                boxTop += 40
+                kutu.style.top = `${boxTop}px`
+            }
+        }
+    })
+
+
+
+
+    // window.addEventListener('keydown', (e) => {
+    //     let leftValue = kutu.style.left
+    //     let topValue = kutu.style.top
+
+    //     if(e.keyCode == 38){
+    //         //yukarı
+    //         console.log('yukarı')
+    //         if(kutu.style.top == 0){
+    //             console.log('sınırdayız')
+    //             return
+    //         }else{
+    //             boxTop--
+    //             kutu.style.top = `${boxTop}px`
+    //         }
+    //     }else if(e.keyCode == 39){
+    //         //sağ
+    //         console.log('sağ')
+    //         console.log(leftValue)
+    //         if(parseInt(kutu.style.left) >= window.innerWidth -100){
+    //             kutu.style.left = (window.innerWidth - 100) + 'px'
+    //             console.log('durdu')
+    //             return
+    //         }else{
+    //             boxLeft+=20
+    //             kutu.style.left = `${boxLeft}px`
+    //         }
+    //     }else if(e.keyCode == 37){
+    //         //sol
+    //         console.log('sol')
+    //         if(kutu.style.left >= 0){
+    //             return
+    //         }else{
+    //             boxLeft--
+    //             kutu.style.left = `${boxLeft}px`
+    //         }
+    //     }else if(e.keyCode == 40){
+    //         //ağaşı
+    //         console.log('ağaşı')
+    //         boxTop++
+    //         kutu.style.top = `${boxTop}px`
+    //     }
+    // })
+</script>
+
+</html>
